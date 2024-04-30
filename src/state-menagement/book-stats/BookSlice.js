@@ -17,11 +17,14 @@ const initalBooks = {
 }
 
 const bookSlice = createSlice({
-    name: 'books',
-    initialState: initalBooks,
-    reducers: {
-        showBooks: (state) => state,
-    }
-})
-export const { showBooks } = bookSlice.actions;
+	name: "books",
+	initialState: initalBooks,
+	reducers: {
+		showBooks: (state) => state,
+        addBooks: (state, action) => {
+            state.books.push(action.payload);
+        },
+	},
+});
+export const { showBooks,addBooks } = bookSlice.actions;
 export default bookSlice.reducer;

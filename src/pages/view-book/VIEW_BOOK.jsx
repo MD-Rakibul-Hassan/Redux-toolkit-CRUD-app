@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 
 const VIEW_BOOK = () => {
   const books = useSelector((state) => state.booksReducer.books);
+  console.log(books)
   return (
 		<div className='my-10'>
 			<table class="border-collapse border border-slate-400 ...">
