@@ -31,16 +31,6 @@ const Navbar = () => {
 						</li>
 						<li>
 							<NavLink
-								to="/editbook"
-								className={({ isActive }) =>
-									isActive ? "text-yellow-500" : "text-blue-100"
-								}
-							>
-								Edit-Book
-							</NavLink>
-						</li>
-						<li>
-							<NavLink
 								to="/viewbook"
 								className={({ isActive }) =>
 									isActive ? "text-yellow-500" : "text-blue-100"
