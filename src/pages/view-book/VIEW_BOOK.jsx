@@ -1,9 +1,13 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteBooks } from '../../state-menagement/book-stats/BookSlice';
 
 const VIEW_BOOK = () => {
   const books = useSelector((state) => state.booksReducer.books);
-  console.log(books)
+  const dispatch = useDispatch();
+  const handleDeleteBooks = (id) => {
+    dispatch(deleteBooks(id))
+  }
   return (
 		<div className='my-10'>
 			<table class="border-collapse border border-slate-400 ...">
@@ -26,7 +30,10 @@ const VIEW_BOOK = () => {
                   <td className='border-2 p-4 border-state-300'>{title}</td>
                   <td className='border-2 border-state-300'>
                     <button className='bg-lime-500 mx-2 text-white px-4 py-2 rounded-xl'>Edit</button>
-                    <button className='bg-orange-600 mx-2 text-white px-4 py-2 rounded-xl'>Delete</button>
+                    <button
+                      className='bg-orange-600 mx-2 text-white px-4 py-2 rounded-xl'
+                      onClick={() => handleDeleteBooks(id)}
+                    >Delete</button>
                   </td>
                 </tr>
               )

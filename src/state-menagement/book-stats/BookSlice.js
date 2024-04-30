@@ -11,7 +11,7 @@ const initalBooks = {
         {
             author: 'Mabbur Rahaman',
             title: 'Data Structor and Algorithom',
-            id:1
+            id:2
         },
     ]
 }
@@ -24,7 +24,11 @@ const bookSlice = createSlice({
         addBooks: (state, action) => {
             state.books.push(action.payload);
         },
+        deleteBooks: (state, action) => {
+            const id = action.payload;
+            state.books = state.books.filter(book => book.id !== id)
+        }
 	},
 });
-export const { showBooks,addBooks } = bookSlice.actions;
+export const { showBooks,addBooks,deleteBooks } = bookSlice.actions;
 export default bookSlice.reducer;
